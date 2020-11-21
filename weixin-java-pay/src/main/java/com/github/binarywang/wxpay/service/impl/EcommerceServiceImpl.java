@@ -226,7 +226,7 @@ public class EcommerceServiceImpl implements EcommerceService {
 
   @Override
   public RefundQueryResult queryRefundByOutRefundNo(String subMchid, String outRefundNo) throws WxPayException {
-    String url = String.format("%s/v3/ecommerce/applyments/out-request-no/%s?sub_mchid=%s", this.payService.getPayBaseUrl(), outRefundNo, subMchid);
+    String url = String.format("%s/v3/ecommerce/refunds/out-refund-no/%s?sub_mchid=%s", this.payService.getPayBaseUrl(), outRefundNo, subMchid);
     String response = this.payService.getV3(URI.create(url));
     return GSON.fromJson(response, RefundQueryResult.class);
   }
@@ -264,6 +264,20 @@ public class EcommerceServiceImpl implements EcommerceService {
     String url = String.format("%s/v3/merchant/fund/withdraw", this.payService.getPayBaseUrl());
     String response = this.payService.postV3(url, GSON.toJson(request));
     return GSON.fromJson(response, SpWithdrawResult.class);
+  }
+
+  @Override
+  public SubWithdrawStatusResult querySubWithdrawByOutRequestNo(String subMchid, String outRequestNo) throws WxPayException {
+    String url = String.format("%s/v3/ecommerce/fund/withdraw/out-request-no/%s?sub_mchid=%s", this.payService.getPayBaseUrl(), outRequestNo, subMchid);
+    String response = this.payService.getV3(URI.create(url));
+    return GSON.fromJson(response, SubWithdrawStatusResult.class);
+  }
+
+  @Override
+  public SpWithdrawStatusResult querySpWithdrawByOutRequestNo(String outRequestNo) throws WxPayException {
+    String url = String.format("%s/v3/merchant/fund/withdraw/out-request-no/%s", this.payService.getPayBaseUrl(), outRequestNo);
+    String response = this.payService.getV3(URI.create(url));
+    return GSON.fromJson(response, SpWithdrawStatusResult.class);
   }
 
   @Override

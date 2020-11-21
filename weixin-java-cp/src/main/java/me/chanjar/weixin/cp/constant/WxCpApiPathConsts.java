@@ -140,6 +140,10 @@ public final class WxCpApiPathConsts {
     public static final String GET_PROVIDER_TOKEN = "/cgi-bin/service/get_provider_token";
     public static final String GET_PREAUTH_CODE = "/cgi-bin/service/get_pre_auth_code";
     public static final String GET_AUTH_INFO = "/cgi-bin/service/get_auth_info";
+    public static final String GET_AUTH_CORP_JSAPI_TICKET = "/cgi-bin/get_jsapi_ticket";
+    public static final String GET_SUITE_JSAPI_TICKET = "/cgi-bin/ticket/get";
+    public static final String GET_USERINFO3RD = "/cgi-bin/service/getuserinfo3rd";
+    public static final String GET_USERDETAIL3RD = "/cgi-bin/service/getuserdetail3rd";
   }
 
   @UtilityClass
@@ -171,6 +175,7 @@ public final class WxCpApiPathConsts {
     public static final String CLOSE_TEMP_CHAT = "/cgi-bin/externalcontact/close_temp_chat";
     public static final String GET_FOLLOW_USER_LIST = "/cgi-bin/externalcontact/get_follow_user_list";
     public static final String GET_CONTACT_DETAIL = "/cgi-bin/externalcontact/get?external_userid=";
+    public static final String GET_CONTACT_DETAIL_BATCH = "/cgi-bin/externalcontact/batch/get_by_user?";
     public static final String UPDATE_REMARK = "/cgi-bin/externalcontact/remark";
     public static final String LIST_EXTERNAL_CONTACT = "/cgi-bin/externalcontact/list?userid=";
     public static final String LIST_UNASSIGNED_CONTACT = "/cgi-bin/externalcontact/get_unassigned_list";
